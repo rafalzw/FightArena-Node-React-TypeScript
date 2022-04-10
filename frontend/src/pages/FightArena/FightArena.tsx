@@ -3,11 +3,17 @@ import {SelectWarrior} from "./SelectWarrior/SelectWarrior";
 import {WarriorEntity} from "types";
 import {FightDetails} from "./FightDetails/FightDetails";
 
+interface Result {
+    fightDetails: string[];
+    war1: WarriorEntity;
+    war2: WarriorEntity;
+}
+
 export function FightArena() {
     const [data, setData] = useState<WarriorEntity[]>([]);
     const [warrior1, setWarrior1] = useState<string>('1');
     const [warrior2, setWarrior2] = useState<string>('2');
-    const [result, setResult] = useState<{ fightDetails: string[], war1: WarriorEntity, war2: WarriorEntity }>();
+    const [result, setResult] = useState<Result>();
 
     useEffect(() => {
         (async () => {
